@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">go4lunch_Randa</string>
+    <string name="floating_button" translatable="false">floating button</string>
+    <string name="Titre_Toolbar_hungry">I\'m Hungry</string>
+    <string name="error_authentication_canceled">authentication canceled</string>
+    <string name="error_no_internet">No internet ?</string>
+    <string name="error_unknown_error">An unknown error has occurred</string>
+    <string name="settings_toolbar">Settings</string>
+    <string name="settings_notification">Notifications</string>
+    <string name="activity_main_menu_search">Search</string>
+    <string name="search_hint">Search</string>
+    <string name="search_too_short">3 characters minimum</string>
+    <string name="logo" translatable="false">logo</string>
+    <string name="menu_lunch">YOUR LUNCH</string>
+    <string name="menu_logout">LOGOUT</string>
+    <string name="menu_settings">SETTINGS</string>
+    <string name="simple_app_name" translatable="false">Go4Lunch</string>
+    <string name="lunch">lunch with workmates</string>
+    <string name="title_map">Map View</string>
+    <string name="title_list">List View</string>
+    <string name="title_workmate">Workmates</string>
+    <string name="Avatar" translatable="false">avatar</string>
+    <string name="searching">Loading…</string>
+    <string name="email_not_found">Email not found</string>
+    <string name="username_not_found">Username not found</string>
+    <string name="no_restaurant_found">No restautant found</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+</resources>
