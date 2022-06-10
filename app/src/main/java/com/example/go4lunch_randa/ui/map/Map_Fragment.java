@@ -4,10 +4,12 @@ import static android.content.ContentValues.TAG;
 import static com.example.go4lunch_randa.utils.Constants.DEFAULT_ZOOM;
 import static com.example.go4lunch_randa.utils.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
 import static com.example.go4lunch_randa.utils.ShowToastSnack.showToast;
+import static com.example.go4lunch_randa.utils.UpdateMarkers.updateMarkers;
 
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -29,7 +31,8 @@ import androidx.core.content.ContextCompat;
 import com.example.go4lunch_randa.R;
 import com.example.go4lunch_randa.databinding.FragmentMapBinding;
 import com.example.go4lunch_randa.ui.BaseFragment;
-import com.example.go4lunch_randa.ui.MainActivity;
+import com.example.go4lunch_randa.ui.HomeActivity;
+import com.example.go4lunch_randa.ui.restaurant_details.Restaurant_Details;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,6 +40,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.tasks.Task;
 
 import org.jetbrains.annotations.NotNull;
@@ -46,13 +50,13 @@ import java.util.Objects;
 
 public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, LocationListener {
 
-    private LatLng defaultLocation = new LatLng(44.8333, -0.5667);
+    private LatLng defaultLocation = new LatLng(48.7228,  2.5381);
     private String mLocation;
     private GoogleMap map;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
     private Location lastKnownLocation;
-    private MainActivity mMainActivity;
+    private HomeActivity mHomeActivity;
 
     private FragmentMapBinding binding;
 
@@ -62,7 +66,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
         super.onCreate(savedInstanceState);
         binding = FragmentMapBinding.inflate(getLayoutInflater());
 
-        mMainActivity = (MainActivity) getActivity();
+        mHomeActivity = (HomeActivity) getActivity();
     }
 
 
@@ -83,7 +87,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
         });
 
         // LIVEDATA
-       // mMainActivity.mLiveData.observe(getViewLifecycleOwner(), resultDetails -> getDeviceLocation());
+        mHomeActivity.mLiveData.observe(getViewLifecycleOwner(), resultDetails -> getDeviceLocation());
 
         return view;
     }
@@ -128,8 +132,8 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
                                             lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
                             Log.e("TAG", "DeviceLocation " + mLocation);
                         } else {
-                            if (mMainActivity.mShareViewModel.getCurrentUserPosition() != null) {
-                                defaultLocation = mMainActivity.mShareViewModel.getCurrentUserPosition();
+                            if (mHomeActivity.mShareViewModel.getCurrentUserPosition() != null) {
+                                defaultLocation = mHomeActivity.mShareViewModel.getCurrentUserPosition();
                             }
 
 
@@ -140,7 +144,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
                             map.getUiSettings().setMyLocationButtonEnabled(false);
 
                             // UPDATE MARKERS
-                           // updateMarkers(map, mMainActivity);
+                            updateMarkers(map, mHomeActivity);
                         }
                     } else {
                         Log.d(TAG, "Current location is null. Using defaults.");
@@ -189,7 +193,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
         }
     }
 
-   /* private boolean onClickMarker(Marker marker) {
+    private boolean onClickMarker(Marker marker) {
         if (marker.getTag() != null) {
             Log.e(TAG, "onClickMarker: " + marker.getTag());
             Intent intent = new Intent(getActivity(), Restaurant_Details.class);
@@ -200,7 +204,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
             Log.e(TAG, "onClickMarker: ERROR NO TAG");
             return false;
         }
-    }*/
+    }
 
     @SuppressLint("PotentialBehaviorOverride")
     private void updateLocationUI() {
@@ -213,7 +217,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
                 map.getUiSettings().setMyLocationButtonEnabled(false);
                // map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireActivity().getApplicationContext(), R.raw.style_json));
                 map.getUiSettings().setMapToolbarEnabled(false);
-              //  map.setOnMarkerClickListener(this::onClickMarker);
+                map.setOnMarkerClickListener(this::onClickMarker);
 
             } else {
                 map.setMyLocationEnabled(false);
@@ -240,7 +244,7 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
     public void onLocationChanged(@NonNull Location location) {
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
-        mMainActivity.mShareViewModel.updateCurrentUserPosition(new LatLng(currentLatitude, currentLongitude));
+        mHomeActivity.mShareViewModel.updateCurrentUserPosition(new LatLng(currentLatitude, currentLongitude));
     }
 
     @Override
@@ -259,19 +263,19 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
         inflater.inflate(R.menu.activity_main_appbar, menu);
-        SearchView mSearchView = new SearchView(Objects.requireNonNull(((MainActivity) requireContext()).getSupportActionBar()).getThemedContext());
+        SearchView mSearchView = new SearchView(Objects.requireNonNull(((HomeActivity) requireContext()).getSupportActionBar()).getThemedContext());
         MenuItem item = menu.findItem(R.id.menu_activity_main_search);
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
         item.setActionView(mSearchView);
         mSearchView.setQueryHint(getResources().getString(R.string.search_hint));
         SearchManager mSearchManager = (SearchManager) requireContext().getSystemService(Context.SEARCH_SERVICE);
-        mSearchView.setSearchableInfo(mSearchManager.getSearchableInfo(((MainActivity) requireContext()).getComponentName()));
+        mSearchView.setSearchableInfo(mSearchManager.getSearchableInfo(((HomeActivity) requireContext()).getComponentName()));
         mSearchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 if (query.length() > 2) {
-                   // mMainActivity.googleAutoCompleteSearch(query);
+                    mHomeActivity.googleAutoCompleteSearch(query);
                     mSearchView.clearFocus();
                 } else {
                     showToast(getContext(), getResources().getString(R.string.search_too_short), 1);
@@ -282,16 +286,12 @@ public class Map_Fragment extends BaseFragment implements OnMapReadyCallback, Lo
             @Override
             public boolean onQueryTextChange(String query) {
                 if (query.length() > 2) {
-                  //  mMainActivity.googleAutoCompleteSearch(query);
+                    mHomeActivity.googleAutoCompleteSearch(query);
                 } else if (query.length() == 0) {
-                  //  mMainActivity.searchByCurrentPosition();
+                    mHomeActivity.searchByCurrentPosition();
                 }
                 return false;
             }
         });
     }
 }
-
-
-
-

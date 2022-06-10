@@ -3,7 +3,7 @@ package com.example.go4lunch_randa.api.firebase;
 import static com.example.go4lunch_randa.utils.Constants.COLLECTION_BOOKING;
 import static com.example.go4lunch_randa.utils.Constants.COLLECTION_LIKED_NAME;
 
-import com.example.go4lunch_randa.models.Booking;
+import com.example.go4lunch_randa.models.Reservation;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -31,8 +31,8 @@ public class RestaurantsHelper {
     // --- CREATE ---
 
     public static Task<DocumentReference> createBooking(String bookingDate, String userId, String restaurantPlaceId, String restaurantName) {
-        Booking bookingToCreate = new Booking(bookingDate, userId, restaurantPlaceId, restaurantName);
-        return RestaurantsHelper.getBookingCollection().add(bookingToCreate);
+        Reservation reservationToCreate = new Reservation(bookingDate, userId, restaurantPlaceId, restaurantName);
+        return RestaurantsHelper.getBookingCollection().add(reservationToCreate);
     }
 
     public static Task<Void> createLike(String restaurantId, String userId) {

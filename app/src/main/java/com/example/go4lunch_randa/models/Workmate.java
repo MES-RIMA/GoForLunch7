@@ -1,5 +1,6 @@
 package com.example.go4lunch_randa.models;
 
+
 import androidx.annotation.Nullable;
 
 public class Workmate {
@@ -54,5 +55,3 @@ public class Workmate {
     }
 
 }
-
-

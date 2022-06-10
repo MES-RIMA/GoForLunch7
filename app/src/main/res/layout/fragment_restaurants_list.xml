@@ -6,4 +6,4 @@
     android:layout_height="match_parent"
     android:paddingTop="@dimen/padding_App_bar_height"
     android:paddingBottom="@dimen/padding_App_bar_height"
-    tools:context=".ui.MainActivity" />
+    tools:context=".ui.HomeActivity" />

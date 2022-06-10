@@ -1,12 +1,12 @@
 package com.example.go4lunch_randa.models;
 
-public class Booking {
+public class Reservation {
     private String bookingDate;
     private String workmateUid;
     private String restaurantId;
     private String restaurantName;
 
-    public Booking(String bookingDate, String workmateUid, String restaurantPlaceId, String restaurantName) {
+    public Reservation(String bookingDate, String workmateUid, String restaurantPlaceId, String restaurantName) {
         this.bookingDate = bookingDate;
         this.workmateUid = workmateUid;
         this.restaurantId = restaurantPlaceId;

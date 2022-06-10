@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.example.go4lunch_randa.R;
-import com.example.go4lunch_randa.api.UserHelper;
+import com.example.go4lunch_randa.api.firebase.UserHelper;
 import com.example.go4lunch_randa.databinding.ActivityLoginBinding;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
@@ -97,7 +97,7 @@ public class LoginActivity extends Activity {
             if (resultCode == RESULT_OK) { // SUCCESS
                 createWorkmate();
                 finish();
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
             } else { // ERRORS
 

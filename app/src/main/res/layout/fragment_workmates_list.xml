@@ -11,5 +11,5 @@
     android:paddingTop="@dimen/padding_App_bar_height"
     android:paddingBottom="@dimen/padding_App_bar_height"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.MainActivity"
+    tools:context=".ui.HomeActivity"
     tools:listitem="@layout/fragment_workmate_item" />
