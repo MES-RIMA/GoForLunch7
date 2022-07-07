@@ -25,6 +25,28 @@
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/activity_main_toolbar" />
+    <ImageView
+        android:id="@+id/settings_user_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/settings_user_image_margin"
+        app:srcCompat="@drawable/baseline_account_circle_24"
+        android:contentDescription="@string/user_image"/>
 
+    <Button
+        android:id="@+id/settings_button_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_delete_account"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:background="@drawable/button_radius_error_color"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="@dimen/settings_delete_button_margin"
+        android:layout_marginBottom="@dimen/settings_delete_button_margin"
+        android:padding="10dp"/>
 
 </LinearLayout>

@@ -34,4 +34,10 @@ public class UserHelper {
     public static void updateUserSettings(String userId, boolean notification) {
         UserHelper.getWorkmatesCollection().document(userId).update("notification", notification);
     }
+    // --- DELETE ---
+
+    public static Task<Void> deleteUser(String uid) {
+        return FirebaseFirestore.getInstance().collection(COLLECTION_WORKMATE).document(uid).delete();
+    }
+
 }

@@ -30,7 +30,7 @@ public class ModelsUnitTest {
     }
 
     @Test
-    public void testGetBookingData() {
+    public void testGetReservationData() {
         assertEquals("22-03-21", reservation.getBookingDate());
         assertEquals("123456789", reservation.getUserId());
         assertEquals("000000", reservation.getRestaurantId());
@@ -38,7 +38,7 @@ public class ModelsUnitTest {
     }
 
     @Test
-    public void testSetBookingData() {
+    public void testSetReservationData() {
 
         reservation.setBookingDate("11-11-11");
         reservation.setRestaurantId("123456");

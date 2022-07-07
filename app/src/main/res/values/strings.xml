@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">go4lunch_Randa</string>
     <string name="error_unknown_error">An unknown error has occurred</string>
     <string name="error_authentication_canceled">authentication canceled</string>
@@ -68,9 +68,16 @@
     <string name="error_no_internet">No internet ?</string>
     <string name="number_workmates" translatable="false">(%1$s)</string>
     <string name="search_hint">Search</string>
+    <string name="user_image">User Image</string>
     <string name="search_too_short">3 characters minimum</string>
     <string name="notif1">Your lunch today :</string>
     <string name="notif2">Workmates participating :</string>
-
-
+    //SETTINGS ACTIVITY
+    <string name="button_delete_account">Delete my account</string>
+    <string name="popup_message_confirmation_delete_account">Are you sure you want to delete your account ?</string>
+    <string name="popup_message_choice_yes">Yes</string>
+    <string name="popup_message_choice_no">No</string>
+   // FACEBOOK ID
+    <string name="facebook_application_id">1411191539321046</string>
+    <string name="fb_login_protocol_scheme">fb1411191539321046</string>
 </resources>

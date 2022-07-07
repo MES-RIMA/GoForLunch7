@@ -86,7 +86,7 @@ public class AlarmReceiver extends BroadcastReceiver implements GooglePlaceDetai
                         }
                         // L'utilisateur actuel n'a rien réservé aujourd'hui
                     } else {
-                        Log.e("TAG", "onReceive: No booking for this user today");
+                        Log.e("TAG", "onReceive: No Restaurant for this user today");
                     }
                 }
             });

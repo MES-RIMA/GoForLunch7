@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/drawable/baseline_account_circle_24.xml" value="0.1" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/drawable/bowl.xml" value="0.1" />
+        <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/drawable/button_radius_error_color.xml" value="0.1" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/drawable/ic_anon_user_48dp.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/drawable/ic_call_24dp.xml" value="0.1" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/drawable/ic_check_circle_black_24dp.xml" value="0.1" />
@@ -23,6 +25,7 @@
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/activity_restaurant_details.xml" value="0.1" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/activity_restaurant_details_item.xml" value="0.1" />
+        <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/activity_settings.xml" value="0.1796875" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/activity_web_view.xml" value="0.1" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/drawer_nav_header.xml" value="0.1796875" />
         <entry key="..\:/Users/randa/AndroidStudioProjects/go4lunch_Randa/app/src/main/res/layout/fragment_map.xml" value="0.1796875" />

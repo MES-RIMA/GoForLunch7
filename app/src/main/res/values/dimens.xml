@@ -15,4 +15,6 @@
     <dimen name="picture_size_min">60dp</dimen>
     <dimen name="mates_picture_size">20dp</dimen>
     <dimen name="space_between_word">4dp</dimen>
+    <dimen name="settings_user_image_margin">100dp</dimen>
+    <dimen name="settings_delete_button_margin">10dp</dimen>
 </resources>
