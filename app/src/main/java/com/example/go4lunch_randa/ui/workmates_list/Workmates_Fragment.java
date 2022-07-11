@@ -4,6 +4,7 @@ import static com.example.go4lunch_randa.utils.GetTodayDate.getTodayDate;
 import static com.example.go4lunch_randa.utils.ShowToastSnack.showToast;
 import static com.firebase.ui.auth.ui.email.EmailLinkFragment.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,6 +74,7 @@ public class Workmates_Fragment extends BaseFragment {
         return view;
     }
 
+    @SuppressLint("RestrictedApi")
     private void initList() {
         UserHelper.getWorkmatesCollection()
                 .get()
