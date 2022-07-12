@@ -93,10 +93,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mShareViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
 
-//        RestaurantsHelper.deleteNotTodayBooking(getTodayDate());
+       RestaurantsHelper.deleteNotTodayBooking(getTodayDate());
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
